@@ -1,37 +1,19 @@
 import { Link } from "react-router-dom";
-
-let posts = [
-  {
-    id: 1,
-    title: "this is the Post 1 ? ",
-    body: "this is the body post 1 ",
-  },
-  {
-    id: 2,
-    title: "this is the Post 2 ? ",
-    body: "this is the body post 2 ",
-  },
-  {
-    id: 3,
-    title: "this is the Post 3 ? ",
-    body: "this is the body post 3 ",
-  },
-];
-const Post = () => {
+import { postsContext } from "../context/postsContext";
+import { useContext } from "react";
+//
+const PostList = () => {
+  const posts = useContext(postsContext);
   let postList = posts.map((post) => {
     return (
-      <div key={post.id} style={{ backgroundColor: "orange", marginTop: "20px" }}>
-        <h1>{post.title}</h1>
-      </div>
-    )
+      <Link key={post.id} to={`/PostDetiles/${post.id}`}>
+        <div style={{ backgroundColor: "orange", marginTop: "20px" }}>
+          <h1>{post.title}</h1>
+        </div>
+      </Link>
+    );
   });
-  return (
-
-      <div>
-        {postList}
-      </div>
-    
-  );
+  return <div>{postList}</div>;
 };
 
-export default Post;
+export default PostList;

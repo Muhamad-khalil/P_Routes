@@ -10,7 +10,7 @@ const Rout = () => {
         <Route path="/" element={<Home />} />
         <Route path="/hello" element={<Hello />} />
         <Route path="/PostList" element={<PostList />} />
-        <Route path="/PostDetiles" element={<PostDetiles />} />
+        <Route path="/PostDetiles/:postId" element={<PostDetiles />} />
       </Routes>
     </div>
   );
